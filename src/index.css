@@ -130,3 +130,8 @@ button {
     -webkit-text-fill-color: transparent;
   }
 }
+@media (max-width: 768px) {
+  .scroll-indicator {
+    display: none !important;
+  }
+}
