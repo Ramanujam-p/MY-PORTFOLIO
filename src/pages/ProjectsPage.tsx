@@ -12,7 +12,7 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&q=80",
     tech: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "http://127.0.0.1:5500/CALCULATOR/index.html",
+    liveUrl: "https://rama-calculator.netlify.app/",
     githubUrl: "https://github.com/ramanujam-p/CALCULATOR",
     featured: true,
   },
@@ -23,7 +23,7 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80",
     tech: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "http://127.0.0.1:5500/STUDENT%20MANAGEMENT%20SYSTEM/index.html",
+    liveUrl: "https://rama-studentms.netlify.app/",
     githubUrl: "https://github.com/ramanujam-p/STUDENT-MANAGEMENT-SYSTEM",
     featured: true,
   },
@@ -34,7 +34,7 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=600&q=80",
     tech: ["HTML", "CSS"],
-    liveUrl: "http://127.0.0.1:5500/CSS/Food%20website/index.html",
+    liveUrl: "https://rama-foodwebsite.netlify.app/",
     githubUrl: "https://github.com/ramanujam-p/FOOD-WEBSITE",
     featured: true,
   },
@@ -56,7 +56,7 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&q=80",
     tech: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "http://127.0.0.1:5500/CSS/TO-DO-LIST/index.html",
+    liveUrl: "https://rama-todolist.netlify.app/",
     githubUrl: "https://github.com/ramanujam-p/TO-DO-LIST",
     featured: false,
   },
@@ -67,10 +67,10 @@ const projects = [
     image:
       "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&q=80",
     tech: ["HTML", "CSS", "Flexbox"],
-    liveUrl: "http://127.0.0.1:5500/CSS/FlexBox/Image%20Gallery/index.html",
+    liveUrl: "https://rama-imgallery.netlify.app/",
     githubUrl: "https://github.com/ramanujam-p/IMAGE-GALLERY",
     featured: false,
-  },
+  }
 ];
 
 
