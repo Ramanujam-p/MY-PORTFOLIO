@@ -1,97 +1,45 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = () => {
-  const [init, setInit] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    }).then(() => setReady(true));
   }, []);
 
-  if (!init) return null;
+  if (!ready) return null;
 
   return (
     <Particles
       id="tsparticles"
+      className="absolute inset-0"
       options={{
-        fullScreen: {
-          enable: true,
-          zIndex: 0,
-        },
-        background: {
-          color: {
-            value: "transparent",
-          },
-        },
-        fpsLimit: 120,
+        fullScreen: { enable: true, zIndex: 0 },
+        fpsLimit: 60,
         interactivity: {
           events: {
-            onHover: {
-              enable: true,
-              mode: "grab",
-            },
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
-          },
-          modes: {
-            grab: {
-              distance: 140,
-              links: {
-                opacity: 0.5,
-              },
-            },
-            push: {
-              quantity: 4,
-            },
+            resize: { enable: true },
           },
         },
         particles: {
-          color: {
-            value: ["#00ffff", "#a855f7", "#ff00ff"],
-          },
-          links: {
-            color: "#00ffff",
-            distance: 150,
-            enable: true,
-            opacity: 0.15,
-            width: 1,
-          },
+          color: { value: "#94a3b8" },
+          links: { enable: false },
           move: {
-            direction: "none",
             enable: true,
-            outModes: {
-              default: "bounce",
-            },
+            speed: 0.1, // ultra slow
             random: true,
-            speed: 1,
-            straight: false,
+            outModes: { default: "out" },
           },
-          number: {
-            density: {
-              enable: true,
-            },
-            value: 80,
-          },
-          opacity: {
-            value: { min: 0.1, max: 0.5 },
-          },
-          shape: {
-            type: "circle",
-          },
-          size: {
-            value: { min: 1, max: 3 },
-          },
+          number: { value: 18 },
+          opacity: { value: 0.12 },
+          size: { value: { min: 1, max: 2 } },
         },
         detectRetina: true,
       }}
-      className="absolute inset-0"
     />
   );
 };

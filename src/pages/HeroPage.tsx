@@ -1,30 +1,35 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Download, Mail, ChevronDown } from "lucide-react";
 import PageTransition from "@/components/PageTransition";
-import Scene3D from "@/components/Scene3D";
 import ParticlesBackground from "@/components/ParticlesBackground";
 
 const HeroPage = () => {
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
+        staggerChildren: 0.12,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.6,
+        ease: "easeOut",
       },
     },
   };
@@ -32,8 +37,7 @@ const HeroPage = () => {
   return (
     <PageTransition className="relative overflow-hidden gradient-hero">
       <ParticlesBackground />
-      <Scene3D />
-      
+
       <div className="relative z-10 min-h-screen flex items-center justify-center px-6">
         <motion.div
           variants={containerVariants}
@@ -41,104 +45,111 @@ const HeroPage = () => {
           animate="visible"
           className="max-w-4xl text-center"
         >
-          {/* Greeting */}
+          {/* Badge */}
           <motion.div
             variants={itemVariants}
             className="inline-block mb-4 px-4 py-2 rounded-full glass-card"
           >
-            <span className="text-primary font-medium">👋 Welcome to my universe</span>
+            <span className="text-primary font-medium">
+              👋 Computer Science Engineering Student
+            </span>
           </motion.div>
 
           {/* Name */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-4"
+            className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-4"
           >
-            <span className="text-foreground">I'm </span>
-            <span className="text-gradient neon-text">John Doe</span>
+            <span className="text-foreground">I’m </span>
+            <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-400 bg-clip-text text-transparent">
+              Ramanujam
+            </span>
           </motion.h1>
 
-          {/* Role with typing effect */}
-          <motion.div
+          {/* Role */}
+          <motion.h2
             variants={itemVariants}
-            className="flex items-center justify-center gap-3 mb-8"
+            className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-3"
           >
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-accent text-muted-foreground">
-              Full Stack Developer & UI/UX Designer
-            </h2>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
-          </motion.div>
+            Software Engineer · Full-Stack Developer
+          </motion.h2>
 
-          {/* Description */}
+          {/* ⭐ Credibility Line (NEW) */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-sm md:text-base text-primary mb-6 font-medium"
           >
-            Crafting digital experiences that blend creativity with cutting-edge technology. 
-            Passionate about building beautiful, performant, and user-centric applications.
+            Actively solving DSA · Building full-stack projects · Open to internships & entry-level roles
+          </motion.p>
+
+          {/* Summary */}
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-6 leading-relaxed"
+          >
+            Computer Science Engineering student focused on building clean, scalable
+            web applications with a strong foundation in data structures, algorithms,
+            and core computer science concepts.
+          </motion.p>
+
+          {/* Proof */}
+          <motion.p
+            variants={itemVariants}
+            className="text-sm md:text-base text-muted-foreground mb-12"
+          >
+            • 400+ DSA problems solved • Multiple real-world projects • Active on GitHub & LeetCode
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-4"
+            className="flex flex-wrap justify-center gap-4"
           >
-            <Link to="/projects">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary flex items-center gap-2 group"
-              >
-                <span className="relative z-10">View Projects</span>
-                <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </Link>
-
-            <motion.a
-              href="/resume.pdf"
-              download
+            <motion.button
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => scrollToSection("projects")}
+              className="btn-primary flex items-center gap-2"
+            >
+              View Projects <ArrowRight className="w-5 h-5" />
+            </motion.button>
+
+            <a
+              href="/resume/P_Ramanujam_Resume.pdf"
+              download
               className="btn-outline flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
-              <span>Download Resume</span>
-            </motion.a>
+              Download Resume (PDF)
+            </a>
 
-            <Link to="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-outline flex items-center gap-2"
-              >
-                <Mail className="w-5 h-5" />
-                <span>Contact Me</span>
-              </motion.button>
-            </Link>
-          </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="flex flex-col items-center gap-2 text-muted-foreground"
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => scrollToSection("contact")}
+              className="btn-outline flex items-center gap-2"
             >
-              <span className="text-sm font-medium">Scroll to explore</span>
-              <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/50 flex items-start justify-center p-2">
-                <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="w-1 h-2 rounded-full bg-primary"
-                />
-              </div>
-            </motion.div>
+              <Mail className="w-5 h-5" />
+              Contact
+            </motion.button>
+          </motion.div>
+        </motion.div>
+
+        {/* ⬇ Scroll Hint (NEW) */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer"
+          onClick={() => scrollToSection("about")}
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            className="flex flex-col items-center text-muted-foreground hover:text-primary transition"
+          >
+            <span className="text-xs mb-1">Scroll to explore</span>
+            <ChevronDown />
           </motion.div>
         </motion.div>
       </div>

@@ -2,11 +2,8 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Instagram, Youtube, Twitter } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://github.com/Ramanujam-p", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/ramanujam-p-42576330b/", label: "LinkedIn" }
 ];
 
 const SocialLinks = () => {

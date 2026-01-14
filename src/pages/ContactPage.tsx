@@ -1,9 +1,22 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import PageTransition from "@/components/PageTransition";
 import GlassCard from "@/components/GlassCard";
 import ParticlesBackground from "@/components/ParticlesBackground";
-import { Send, Mail, User, MessageSquare, CheckCircle, Loader2 } from "lucide-react";
+import {
+  Send,
+  Mail,
+  User,
+  MessageSquare,
+  CheckCircle,
+  Loader2,
+} from "lucide-react";
+
+// ✅ EmailJS credentials (SAFE to use in frontend)
+const SERVICE_ID = "service_flp0j7o";
+const TEMPLATE_ID = "template_bmg7cdt";
+const PUBLIC_KEY = "h1S1aNpm-rE9quXYc";
 
 const ContactPage = () => {
   const [formState, setFormState] = useState({
@@ -11,37 +24,56 @@ const ContactPage = () => {
     email: "",
     message: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormState({ name: "", email: "", message: "" });
-    
-    // Reset success state after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormState((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const inputClasses = "w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder:text-muted-foreground";
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        },
+        PUBLIC_KEY
+      );
+
+      setIsSubmitted(true);
+      setFormState({ name: "", email: "", message: "" });
+
+      setTimeout(() => setIsSubmitted(false), 4000);
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setError("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const inputClasses =
+    "w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 text-foreground placeholder:text-muted-foreground";
 
   return (
     <PageTransition className="relative gradient-mesh pt-28 pb-20 px-6">
       <ParticlesBackground />
-      
+
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -51,91 +83,66 @@ const ContactPage = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">
-            Get In <span className="text-gradient">Touch</span>
+            Contact <span className="text-gradient">Me</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or just want to chat? I'd love to hear from you!
+            Recruiters and hiring managers are welcome to reach out regarding
+            internships, placements, or entry-level software engineering roles.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-5 gap-8">
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             className="md:col-span-2 space-y-6"
           >
             <GlassCard>
-              <h3 className="text-xl font-display font-bold mb-4">Let's Connect</h3>
+              <h3 className="text-xl font-display font-bold mb-4">
+                Professional Contact
+              </h3>
               <p className="text-muted-foreground mb-6">
-                Whether you have a question, want to collaborate, or just want to say hi, 
-                feel free to reach out!
+                I actively monitor my email and respond promptly to professional
+                inquiries.
               </p>
-              
-              <div className="space-y-4">
-                <motion.a
-                  href="mailto:hello@johndoe.dev"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <Mail className="w-5 h-5 text-primary" />
-                  </div>
-                  <span>hello@johndoe.dev</span>
-                </motion.a>
-              </div>
+
+              <a
+                href="mailto:pramanujam68@gmail.com"
+                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <Mail className="w-5 h-5 text-primary" />
+                </div>
+                <span>pramanujam68@gmail.com</span>
+              </a>
             </GlassCard>
 
             <GlassCard>
-              <h3 className="text-xl font-display font-bold mb-4">Response Time</h3>
+              <h3 className="text-xl font-display font-bold mb-3">
+                Preferred Communication
+              </h3>
               <p className="text-muted-foreground">
-                I typically respond within 24-48 hours. For urgent matters, 
-                please reach out via LinkedIn.
+                Email and LinkedIn are preferred for official communication and
+                faster responses.
               </p>
             </GlassCard>
           </motion.div>
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6 }}
             className="md:col-span-3"
           >
-            <GlassCard className="relative overflow-hidden">
-              {/* Success Overlay */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ 
-                  opacity: isSubmitted ? 1 : 0, 
-                  scale: isSubmitted ? 1 : 0.8,
-                  pointerEvents: isSubmitted ? "auto" : "none"
-                }}
-                className="absolute inset-0 flex items-center justify-center bg-card/95 backdrop-blur-sm z-10"
-              >
-                <div className="text-center">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: isSubmitted ? 1 : 0 }}
-                    transition={{ type: "spring", delay: 0.1 }}
-                  >
-                    <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-                  </motion.div>
-                  <h3 className="text-2xl font-display font-bold text-gradient mb-2">
-                    Message Sent!
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Thanks for reaching out. I'll get back to you soon!
-                  </p>
-                </div>
-              </motion.div>
-
+            <GlassCard>
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Input */}
+                {/* Name */}
                 <div>
                   <label className="block text-sm font-medium mb-2 text-muted-foreground">
-                    Your Name
+                    Name
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -145,16 +152,16 @@ const ContactPage = () => {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      placeholder="John Doe"
+                      placeholder="Your name"
                       className={`${inputClasses} pl-12`}
                     />
                   </div>
                 </div>
 
-                {/* Email Input */}
+                {/* Email */}
                 <div>
                   <label className="block text-sm font-medium mb-2 text-muted-foreground">
-                    Your Email
+                    Email
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -164,16 +171,16 @@ const ContactPage = () => {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      placeholder="john@example.com"
+                      placeholder="your.email@company.com"
                       className={`${inputClasses} pl-12`}
                     />
                   </div>
                 </div>
 
-                {/* Message Input */}
+                {/* Message */}
                 <div>
                   <label className="block text-sm font-medium mb-2 text-muted-foreground">
-                    Your Message
+                    Message
                   </label>
                   <div className="relative">
                     <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-muted-foreground" />
@@ -181,15 +188,15 @@ const ContactPage = () => {
                       name="message"
                       value={formState.message}
                       onChange={handleChange}
+                      rows={4}
                       required
-                      rows={5}
-                      placeholder="Tell me about your project..."
+                      placeholder="Brief message about opportunity or role"
                       className={`${inputClasses} pl-12 resize-none`}
                     />
                   </div>
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
@@ -199,16 +206,37 @@ const ContactPage = () => {
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin relative z-10" />
-                      <span className="relative z-10">Sending...</span>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Sending...
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5 relative z-10" />
-                      <span className="relative z-10">Send Message</span>
+                      <Send className="w-5 h-5" />
+                      Send Message
                     </>
                   )}
                 </motion.button>
+
+                {/* Success */}
+                {isSubmitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center justify-center gap-2 text-green-500 text-sm font-medium"
+                  >
+                    <CheckCircle className="w-4 h-4" />
+                    Message sent successfully
+                  </motion.div>
+                )}
+
+                {/* Error */}
+                {error && (
+                  <p className="text-sm text-red-500 text-center">{error}</p>
+                )}
+
+                <p className="text-xs text-muted-foreground text-center">
+                  Emails are delivered directly to my inbox.
+                </p>
               </form>
             </GlassCard>
           </motion.div>

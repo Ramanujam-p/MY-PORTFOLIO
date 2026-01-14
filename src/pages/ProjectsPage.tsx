@@ -6,60 +6,73 @@ import { ExternalLink, Github, Folder } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform with real-time inventory management, payment processing, and admin dashboard.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
-    tech: ["React", "Node.js", "PostgreSQL", "Stripe", "Redis"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    title: "Calculator",
+    description:
+      "A simple and interactive calculator built using HTML, CSS, and JavaScript with clean UI and responsive layout.",
+    image:
+      "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&q=80",
+    tech: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "http://127.0.0.1:5500/CALCULATOR/index.html",
+    githubUrl: "https://github.com/ramanujam-p/CALCULATOR",
     featured: true,
   },
   {
-    title: "AI Chat Application",
-    description: "Real-time chat application powered by AI with natural language processing and smart responses.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80",
-    tech: ["Next.js", "OpenAI", "WebSocket", "MongoDB", "Tailwind"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    title: "Student Management System",
+    description:
+      "A CRUD-based student management system to add, update, delete, and view student records using JavaScript logic.",
+    image:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80",
+    tech: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "http://127.0.0.1:5500/STUDENT%20MANAGEMENT%20SYSTEM/index.html",
+    githubUrl: "https://github.com/ramanujam-p/STUDENT-MANAGEMENT-SYSTEM",
     featured: true,
   },
   {
-    title: "Crypto Dashboard",
-    description: "Real-time cryptocurrency tracking dashboard with portfolio management and price alerts.",
-    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=600&q=80",
-    tech: ["React", "D3.js", "CoinGecko API", "Firebase"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    title: "Food Website",
+    description:
+      "An attractive and responsive food website showcasing modern UI design using CSS layouts and animations.",
+    image:
+      "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=600&q=80",
+    tech: ["HTML", "CSS"],
+    liveUrl: "http://127.0.0.1:5500/CSS/Food%20website/index.html",
+    githubUrl: "https://github.com/ramanujam-p/FOOD-WEBSITE",
     featured: true,
   },
   {
-    title: "Task Management App",
-    description: "Collaborative task management tool with real-time updates and team features.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&q=80",
-    tech: ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    title: "Landing Page",
+    description:
+      "A creative and responsive landing page built with modern layout techniques and smooth hover interactions.",
+    image:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80",
+    tech: ["HTML", "CSS"],
+    liveUrl: "https://ramanujam-p.github.io/RESPONSIVE-LANDINING-PAGE/",
+    githubUrl: "https://github.com/ramanujam-p/RESPONSIVE-LANDINING-PAGE",
     featured: false,
   },
   {
-    title: "Music Streaming UI",
-    description: "Modern music streaming interface with playlist management and audio visualization.",
-    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80",
-    tech: ["React", "Web Audio API", "Spotify API", "Framer Motion"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    title: "To-Do List",
+    description:
+      "A premium and interactive to-do list application with task add, delete, and completion features.",
+    image:
+      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&q=80",
+    tech: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "http://127.0.0.1:5500/CSS/TO-DO-LIST/index.html",
+    githubUrl: "https://github.com/ramanujam-p/TO-DO-LIST",
     featured: false,
   },
   {
-    title: "Weather Application",
-    description: "Beautiful weather app with location-based forecasts and animated visualizations.",
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&q=80",
-    tech: ["React Native", "OpenWeather API", "Lottie"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    title: "Image Gallery",
+    description:
+      "A responsive image gallery built using CSS Flexbox and Grid concepts with hover effects.",
+    image:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&q=80",
+    tech: ["HTML", "CSS", "Flexbox"],
+    liveUrl: "http://127.0.0.1:5500/CSS/FlexBox/Image%20Gallery/index.html",
+    githubUrl: "https://github.com/ramanujam-p/IMAGE-GALLERY",
     featured: false,
   },
 ];
+
 
 const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => (
   <motion.div

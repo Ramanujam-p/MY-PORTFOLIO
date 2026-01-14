@@ -13,9 +13,7 @@ const skillCategories = [
       { name: "React.js", level: 95 },
       { name: "TypeScript", level: 90 },
       { name: "Next.js", level: 85 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "Framer Motion", level: 80 },
-      { name: "Three.js", level: 70 },
+      { name: "Tailwind CSS", level: 95 }
     ],
   },
   {
@@ -26,9 +24,7 @@ const skillCategories = [
       { name: "Node.js", level: 90 },
       { name: "Express.js", level: 85 },
       { name: "Python", level: 75 },
-      { name: "GraphQL", level: 80 },
-      { name: "REST APIs", level: 95 },
-      { name: "WebSockets", level: 70 },
+      { name: "REST APIs", level: 95 }
     ],
   },
   {
@@ -38,10 +34,8 @@ const skillCategories = [
     skills: [
       { name: "PostgreSQL", level: 85 },
       { name: "MongoDB", level: 80 },
-      { name: "Redis", level: 75 },
       { name: "Firebase", level: 85 },
-      { name: "Supabase", level: 80 },
-      { name: "Prisma", level: 75 },
+      { name: "Supabase", level: 80 }
     ],
   },
   {
@@ -51,9 +45,7 @@ const skillCategories = [
     skills: [
       { name: "Docker", level: 80 },
       { name: "AWS", level: 75 },
-      { name: "Vercel", level: 90 },
       { name: "GitHub Actions", level: 85 },
-      { name: "Linux", level: 80 },
       { name: "Nginx", level: 70 },
     ],
   },
@@ -65,9 +57,7 @@ const skillCategories = [
       { name: "Git", level: 95 },
       { name: "VS Code", level: 95 },
       { name: "Figma", level: 80 },
-      { name: "Postman", level: 85 },
-      { name: "Jest", level: 80 },
-      { name: "Webpack", level: 75 },
+      { name: "Postman", level: 85 }
     ],
   },
 ];
@@ -164,9 +154,9 @@ const SkillsPage = () => {
           <h3 className="text-2xl font-display font-bold mb-6">Also Familiar With</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              "Vue.js", "Angular", "Svelte", "Ruby on Rails", "Django", 
-              "Java", "C++", "Rust", "Kubernetes", "Terraform",
-              "Photoshop", "Illustrator", "Blender", "After Effects"
+              "Vue.js", "Angular", "C","Java Script", "Ruby on Rails",
+              "Java", "C++", "MySQL", "SQLite", "Jira", "TypeScript", "HTML5", "CSS3", "XML",
+              "JSON","MongoDB"
             ].map((skill, index) => (
               <motion.span
                 key={skill}
