@@ -13,7 +13,7 @@ const projects = [
       "https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&q=80",
     tech: ["HTML", "CSS", "JavaScript"],
     liveUrl: "https://rama-calculator.netlify.app/",
-    githubUrl: "https://github.com/ramanujam-p/CALCULATOR",
+    githubUrl: "https://github.com/Ramanujam-p/MY-WEB-PROJECTS/tree/main/CALCULATOR",
     featured: true,
   },
   {
