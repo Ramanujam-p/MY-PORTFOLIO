@@ -73,7 +73,7 @@ const projects = [
   },
   {
     title: "skill share",
-    description: "A skill sharing platform to connect learners and instructors, offering courses across various domains with interactive features.",
+    description: "Skill Share is an interactive student dashboard that connects university students based on shared skills, interests, and learning goals. It enables collaboration through skill matching, Q&A, real-time chat, and a personalized dashboard, helping students grow together in a connected academic community.",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80",
     tech: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
