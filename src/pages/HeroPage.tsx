@@ -74,7 +74,7 @@ const HeroPage = () => {
             Software Engineer · Full-Stack Developer
           </motion.h2>
 
-          {/* ⭐ Credibility Line (NEW) */}
+          {/* Credibility */}
           <motion.p
             variants={itemVariants}
             className="text-sm md:text-base text-primary mb-6 font-medium"
@@ -114,9 +114,12 @@ const HeroPage = () => {
               View Projects <ArrowRight className="w-5 h-5" />
             </motion.button>
 
+            {/* ✅ FIXED RESUME BUTTON */}
             <a
-              href="/resume/P_Ramanujam_Resume.pdf"
+              href="/resume/Ramanujam_P_Resume_OnCampus_ATS95.pdf"
               download
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-outline flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
@@ -135,15 +138,14 @@ const HeroPage = () => {
           </motion.div>
         </motion.div>
 
-        {/* ⬇ Scroll Hint (NEW) */}
+        {/* Scroll Indicator (Desktop only) */}
         <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5 }}
-        className="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer hidden md:block"
-        onClick={() => scrollToSection("about")}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5 }}
+          className="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer hidden md:block"
+          onClick={() => scrollToSection("about")}
         >
-
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
