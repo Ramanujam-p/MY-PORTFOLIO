@@ -70,6 +70,16 @@ const projects = [
     liveUrl: "https://rama-imgallery.netlify.app/",
     githubUrl: "https://github.com/ramanujam-p/IMAGE-GALLERY",
     featured: false,
+  },
+  {
+    title: "skill share",
+    description: "A skill sharing platform to connect learners and instructors, offering courses across various domains with interactive features.",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+    liveUrl: "https://ramanujam-skill-share-platform.netlify.app/",
+    githubUrl: "https://github.com/Ramanujam-p/SKILL-SHARE-PLATFORM",
+    featured: true,
   }
 ];
 
