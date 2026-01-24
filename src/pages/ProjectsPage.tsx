@@ -80,6 +80,15 @@ const projects = [
     liveUrl: "https://student-helpdesk-f4987.web.app/",
     githubUrl: "https://github.com/Ramanujam-p/SKILL-SHARE-PLATFORM",
     featured: true,
+  },
+  {
+    title: "My Portfolio Website",
+    description: "A personal portfolio website built using React and Tailwind CSS to showcase my projects, skills, and experience with a modern and responsive design.",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://ramanujam-portfolio.vercel.app/",
+    githubUrl: "https://github.com/Ramanujam-p/MY-PORTFOLIO",
+    featured: true,
   }
 ];
 
@@ -93,8 +102,8 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
     className={`group ${project.featured ? "md:col-span-2 lg:col-span-1" : ""}`}
   >
     <motion.div
-      whileHover={{ 
-        rotateY: 5, 
+      whileHover={{
+        rotateY: 5,
         rotateX: -5,
         scale: 1.02,
       }}
@@ -112,7 +121,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
           transition={{ duration: 0.5 }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-        
+
         {/* Overlay Links */}
         <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/50 backdrop-blur-sm">
           <motion.a
@@ -146,7 +155,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
             {project.title}
           </h3>
         </div>
-        
+
         <p className="text-muted-foreground text-sm leading-relaxed mb-4">
           {project.description}
         </p>
@@ -171,7 +180,7 @@ const ProjectsPage = () => {
   return (
     <PageTransition className="relative gradient-mesh pt-28 pb-20 px-6">
       <ParticlesBackground />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
