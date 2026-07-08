@@ -52,7 +52,7 @@ An interactive student dashboard that connects students based on skills and inte
   - Responsive UI
 - Tech Used: HTML, CSS, JavaScript, React
 
-🔗 Live Demo: https://ramanujam-skill-share-platform.netlify.app/
+🔗 Live Demo: https://student-helpdesk-f4987.web.app/
 
 📂 Code: https://github.com/Ramanujam-p/SKILL-SHARE-PLATFORM
 ---
