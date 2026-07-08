@@ -6,6 +6,37 @@ import { ExternalLink, Github, Folder } from "lucide-react";
 
 const projects = [
   {
+    title: "HireReadyAI-A Job Portal",
+    description: "HireReadyAI is a job portal that leverages AI to match job seekers with relevant opportunities. It features AI-powered resume analysis, personalized job recommendations, and an intuitive interface for both job seekers and employers.",
+    image: "https://images.unsplash.com/photo-1581091870622-3e0f1c5b8d6e?w=600&q=80",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+    githubUrl: "https://github.com/Ramanujam-p/Hire-Ready-AI"
+  },
+  {
+    title: "ResQNet-A Disaster Management System",
+    description: "ResQNet is a disaster management system that utilizes AI and machine learning to predict and respond to natural disasters. It provides real-time alerts, resource allocation, and a platform for volunteers and authorities to coordinate rescue operations effectively.",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+    githubUrl: "https://github.com/Ramanujam-p/ResQNet"
+  },
+  {
+    title: "ConnectIQ-A Chat Application System",
+    description: "ConnectIQ is a real-time chat application that allows users to communicate seamlessly. It features instant messaging, group chats, and media sharing, providing a user-friendly interface for effective communication.",
+    image: "https://images.unsplash.com/photo-1581091870622-3e0f1c5b8d6e?w=600&q=80",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "Socket.io"],
+    githubUrl: "https://github.com/Ramanujam-p/Connect-IQ"
+  },
+  {
+    title: "Skill Share",
+    description: "Skill Share is an interactive student dashboard that connects university students based on shared skills, interests, and learning goals. It enables collaboration through skill matching, Q&A, real-time chat, and a personalized dashboard, helping students grow together in a connected academic community.",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
+    liveUrl: "https://student-helpdesk-f4987.web.app/",
+    githubUrl: "https://github.com/Ramanujam-p/SKILL-SHARE-PLATFORM",
+    featured: true,
+  },
+  {
     title: "Calculator",
     description:
       "A simple and interactive calculator built using HTML, CSS, and JavaScript with clean UI and responsive layout.",
@@ -70,16 +101,6 @@ const projects = [
     liveUrl: "https://ramanujam-p.github.io/MY-WEB-PROJECTS/CSS/FlexBox/Image%20Gallery/index.html",
     githubUrl: "https://github.com/ramanujam-p/IMAGE-GALLERY",
     featured: false,
-  },
-  {
-    title: "Skill Share",
-    description: "Skill Share is an interactive student dashboard that connects university students based on shared skills, interests, and learning goals. It enables collaboration through skill matching, Q&A, real-time chat, and a personalized dashboard, helping students grow together in a connected academic community.",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
-    liveUrl: "https://student-helpdesk-f4987.web.app/",
-    githubUrl: "https://github.com/Ramanujam-p/SKILL-SHARE-PLATFORM",
-    featured: true,
   },
   {
     title: "My Portfolio Website",
